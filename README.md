@@ -1,1 +1,1 @@
-I solve DSA problems .All the ample code available here.
+I solve DSA problems .All the sample code available here.

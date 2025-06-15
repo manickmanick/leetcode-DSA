@@ -51,9 +51,12 @@ console.log(validWordAbbreviation(word1,abbr1));
 // 3  e
 // 0  1
 
-// sum = 0
+// a
+// 2
 
-// wordPtr = 3    
+// sum = 2
+
+// wordPtr = 2
 
 
-// abbrPtr = 1   
+// abbrPtr = 1

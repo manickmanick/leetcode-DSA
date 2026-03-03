@@ -104,17 +104,12 @@ return 5
 // approach - 3 iterative approach
 
 var reverseList = function(head) {
-    let reverseHead = null
-    function innerReverseList(head){
-        if(!head ||!head.next) {
-            reverseHead = head;
-            return head
-        };
-        let next =  innerReverseList(head.next);
-        if(next) next.next = head;
-        head.next = null;
-        return head;
+    let prev = null;
+    while(head){
+        let next = head.next;  // 2
+        head.next = prev;  // 1->null
+        prev = head; // prev = 1
+        head = next; // head = 2
     }
-   let lastNode = innerReverseList(head);
-   return reverseHead;
+    return prev
 };

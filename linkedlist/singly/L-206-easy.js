@@ -58,3 +58,63 @@ var reverseList = function(head) {
    return reverseHead;
 };
 
+
+// approach-2 optimized recursive approach
+
+var reverseList = function(head) {
+    if(!head || !head.next) return head
+    let newReverseNode = reverseList(head.next)
+    head.next.next = head;
+    head.next = null;
+    return newReverseNode;
+};
+
+/*
+above code debugging value below.
+->reverseList(1)
+-->reverseList(2)
+--->reverseList(3)
+---->reverseList(4)
+----->reverseList(5)
+return 5
+# <-----
+head = 4
+5->4
+4->null
+return 5
+# <----
+ head = 3
+ 4->3
+ 3->null
+ return 5
+# <---
+head=2
+3->2
+2->null
+return 5
+# <--
+head = 1
+2->1
+1->null
+return 5
+
+*/
+
+
+// approach - 3 iterative approach
+
+var reverseList = function(head) {
+    let reverseHead = null
+    function innerReverseList(head){
+        if(!head ||!head.next) {
+            reverseHead = head;
+            return head
+        };
+        let next =  innerReverseList(head.next);
+        if(next) next.next = head;
+        head.next = null;
+        return head;
+    }
+   let lastNode = innerReverseList(head);
+   return reverseHead;
+};
